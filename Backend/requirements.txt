@@ -13,8 +13,10 @@ idna==3.3
 itsdangerous==2.1.2
 Jinja2==3.1.2
 MarkupSafe==2.1.1
+motor==3.0.0
 orjson==3.6.8
 pydantic==1.9.1
+pymongo==4.1.1
 python-dotenv==0.20.0
 python-multipart==0.0.5
 PyYAML==6.0
