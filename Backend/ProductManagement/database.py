@@ -29,7 +29,7 @@ def get_all_products():
 
 #create function
 def create_product(product):
-    item=product.dict()
+    item=product
     result= table.put_item(
     Item={'id':item['id'],'name':item['name'],'description':item['description'],'categoryId':item['categoryId'],'brandId':item['brandId'],'comments':item['comments'],'product_qr_code':item['product_qr_code'],'metadata':item['metadata']}
     )
@@ -37,7 +37,7 @@ def create_product(product):
 
 #update function
 def update_product(name,product):
-    item=product.dict()
+    item=product
     result=table.update_item(Key={'name':name},UpdateExpression='set name= :n,description= :d,categoryId= :c,brandId= :b,comments= :co',
     ExpressionAttributeValues={':n':item['name'],':d':item['description'],':c':item['categoryId'],':b':item['brandId'],':co':item['comments']},
     ReturnValues="UPDATED_NEW"

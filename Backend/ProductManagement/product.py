@@ -37,7 +37,7 @@ aync def getOneProduct(name):
 
 @app.post("/api/product",response_model=Product)
 aync def createProduct(product:Product):
-    response=await create_product(product)
+    response=await create_product(product.dict())
     if response:
         return response
     raise HTTPException(400,"Bad Request")
@@ -45,7 +45,7 @@ aync def createProduct(product:Product):
 
 @app.put("/api/product{name}/",response_model=Product)
 async def updateProduct(name:str,data:Product):
-    response=await update_product(name,data)
+    response=await update_product(name,data.dict())
     if response:
         return response
     raise HTTPException(404,f"There is no product with this name {name}")
