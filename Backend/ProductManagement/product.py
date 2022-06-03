@@ -29,14 +29,14 @@ async def getAllProducts():
     return response
 
 @app.get("/api/product{name}",response_model=Product)
-aync def getOneProduct(name):
+async def getOneProduct(name):
     response=await get_one_product(name)
     if response:
         return response
     raise HTTPException(404,f"There is no product with this name {name}")
 
 @app.post("/api/product",response_model=Product)
-aync def createProduct(product:Product):
+async def createProduct(product:Product):
     response=await create_product(product.dict())
     if response:
         return response
